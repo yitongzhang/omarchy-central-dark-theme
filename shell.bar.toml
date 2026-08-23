@@ -1,0 +1,9 @@
+# Patched into the generated shell.toml at theme-set time (section [bar]).
+# Only the keys below are replaced; every other [bar] key still comes from
+# Omarchy's shell.toml.tpl, so upstream additions keep flowing through.
+#
+# The bar sits on pure black at 40% rather than the theme background, so the
+# gradient reads as a shadow over the wallpaper instead of a panel.
+background       = "#000000"
+background-alpha = 0.4
+text             = "#ffffff"

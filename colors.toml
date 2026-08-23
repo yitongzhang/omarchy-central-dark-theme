@@ -1,0 +1,45 @@
+# Central Dark — neutral greys, Tokyo Night accents.
+#
+# This theme deliberately ships only colors.toml, icons.theme, partner.theme,
+# backgrounds/ and previews. Everything else (alacritty, btop, chromium,
+# claude, foot, ghostty, helix, hyprland, kitty, neovim, obsidian, pi, shell,
+# vscode, ...) is generated from these values by omarchy-theme-set-templates,
+# so new Omarchy integrations land in this theme automatically on update.
+# Adding a static app config here would freeze that file forever — don't.
+
+mode = "dark"
+
+accent = "#7aa2f7"
+selection = "#2f2f2f"
+muted = "#4a4a4a"
+
+background = "#1c1c1c"
+dark_background = "#141414"
+darker_background = "#0e0e0e"
+lighter_background = "#292929"
+
+foreground = "#b2b2b2"
+dark_foreground = "#616161"
+light_foreground = "#bfbfbf"
+bright_foreground = "#cbcbcb"
+
+# Window borders: vertical white -> 30% grey, 20% opacity active / 10% inactive.
+# Feeds both hyprland.lua and the shell's popup/menu/notification borders.
+hyprland_active_border = "rgba(ffffff33) rgba(4d4d4d33) 90deg"
+hyprland_inactive_border = "rgba(ffffff1a) rgba(4d4d4d1a) 90deg"
+
+red = "#f7768e"
+yellow = "#e0af68"
+orange = "#eb927b"
+green = "#9ece6a"
+cyan = "#449dab"
+blue = "#7aa2f7"
+magenta = "#ad8ee6"
+brown = "#75493d"
+
+bright_red = "#ff7a93"
+bright_yellow = "#ff9e64"
+bright_green = "#b9f27c"
+bright_cyan = "#0db9d7"
+bright_blue = "#7da6ff"
+bright_magenta = "#bb9af7"
