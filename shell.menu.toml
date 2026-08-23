@@ -1,3 +1,0 @@
-# Hairline card borders. `border` itself is intentionally left to the
-# template, which resolves it from hyprland_active_border in colors.toml.
-border-width = 1

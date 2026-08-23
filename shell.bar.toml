@@ -1,9 +1,25 @@
-# Patched into the generated shell.toml at theme-set time (section [bar]).
-# Only the keys below are replaced; every other [bar] key still comes from
-# Omarchy's shell.toml.tpl, so upstream additions keep flowing through.
+# Patched into the generated shell.toml as the whole [bar] section.
 #
-# The bar sits on pure black at 40% rather than the theme background, so the
-# gradient reads as a shadow over the wallpaper instead of a panel.
+# NOTE: shell.<section>.toml REPLACES a section, it does not merge into it.
+# So this file must carry every [bar] key, not just the ones being changed —
+# anything omitted here is simply absent from the theme. The last four keys
+# are upstream's defaults, reproduced verbatim from
+# $OMARCHY_PATH/default/themed/shell.toml.tpl; only the first three are ours.
+#
+# This is the one place the theme accepts a freeze against upstream, because
+# the bar's weight is a real part of the theme's identity and there is no
+# per-key theme-level override. Every other section still comes straight from
+# the template. When Omarchy adds a [bar] token, add it here too.
+
+# Ours: the bar sits on pure black at 40% rather than the theme background,
+# so the fade reads as a shadow over the wallpaper instead of a panel, with
+# full-white label text on top.
 background       = "#000000"
 background-alpha = 0.4
 text             = "#ffffff"
+
+# Upstream defaults.
+active           = "#f7768e"
+scale-with-font  = true
+size-horizontal  = 26
+size-vertical    = 28

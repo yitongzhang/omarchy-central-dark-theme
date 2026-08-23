@@ -22,8 +22,7 @@ it pulls both themes in.
 
 ```
 colors.toml        the palette, plus mode and the Hyprland border gradients
-shell.bar.toml     [bar] section override for the generated shell.toml
-shell.menu.toml    [menu] section override — hairline card borders
+shell.bar.toml     the whole [bar] section of the generated shell.toml
 icons.theme        Yaru-blue-dark (the dark-UI variant — light symbolic glyphs)
 partner.theme      central-light — read by omarchy-theme-mode to find the other half
 backgrounds/       one wallpaper
@@ -46,9 +45,31 @@ file but don't:
 - **Window borders.** `hyprland_active_border` / `hyprland_inactive_border`
   in `colors.toml` feed both `hyprland.lua.tpl` and the shell's
   popup/menu/notification/lock borders. No `hyprland.lua` needed.
-- **Bar and menu chrome.** A `shell.<section>.toml` file patches just that
-  section into the generated `shell.toml`; every other key still comes from
-  upstream's template.
+- **Menu, popup, notification and lock borders.** They all resolve from the
+  same `hyprland.active-border` token, so the two keys above style them too.
+  No `shell.toml` needed for any of it.
+
+### The one exception: `shell.bar.toml`
+
+`shell.<section>.toml` **replaces** a section — it does not merge into it. So
+`shell.bar.toml` has to spell out every `[bar]` key, including the four it
+doesn't change, and those four are frozen against upstream until someone
+updates this file.
+
+That trade is deliberate and narrow. The bar's weight (pure black/white at 40%
+rather than the theme background at 70%, with full-contrast label text) is a
+real part of this theme's identity, and there is no per-key theme-level
+override to express it with. Every other section still comes straight from the
+template. To check for drift:
+
+```bash
+diff <(sed -n '/^\[bar\]/,/^\[/p' $OMARCHY_PATH/default/themed/shell.toml.tpl) \
+     <(sed -n '/^\[bar\]/,/^\[/p' ~/.local/state/omarchy/current/theme/shell.toml)
+```
+
+Mode-independent tweaks don't need this at all — put them in
+`~/.config/omarchy/shell.toml`, which layers over the theme one key at a
+time.
 
 ## Regenerating the preview
 

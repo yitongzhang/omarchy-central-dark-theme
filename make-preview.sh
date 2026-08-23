@@ -44,7 +44,7 @@ args=(
 declare -a LINES=(
   "$green|\$ omarchy theme current||"
   "$fg|$NAME||"
-  "$green|\$ omarchy theme mode status||"
+  "$green|\$ omarchy-theme-mode status||"
   "$dfg|  mode    $(k mode)  (auto)||"
   "$dfg|  today   light 06:32 -> dark 19:54||"
   "$dfg|  source  sunrise/sunset, San Francisco||"
