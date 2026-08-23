@@ -22,7 +22,7 @@ it pulls both themes in.
 
 ```
 colors.toml        the palette, plus mode and the Hyprland border gradients
-shell.bar.toml     the whole [bar] section of the generated shell.toml
+shell.bar.toml     the whole [bar] section — identical in both halves
 icons.theme        Yaru-blue-dark (the dark-UI variant — light symbolic glyphs)
 partner.theme      central-light — read by omarchy-theme-mode to find the other half
 backgrounds/       one wallpaper
@@ -56,10 +56,16 @@ file but don't:
 doesn't change, and those four are frozen against upstream until someone
 updates this file.
 
-That trade is deliberate and narrow. The bar's weight (pure black/white at 40%
-rather than the theme background at 70%, with full-contrast label text) is a
-real part of this theme's identity, and there is no per-key theme-level
-override to express it with. Every other section still comes straight from the
+That trade is deliberate and narrow. The bar's weight is a real part of this
+theme's identity and there is no per-key theme-level override to express it
+with.
+
+Note that `shell.bar.toml` is **identical** in Central Dark and Central Light.
+The bar is not desktop chrome that should invert with the mode — it floats
+over the wallpaper, and the wallpaper is bright in both. So it keeps a black
+scrim at 40% with white labels either way, the way a menu bar over a photo
+does. A white-on-white bar in light mode is what a naive invert produces, and
+it reads much worse. Every other section still comes straight from the
 template. To check for drift:
 
 ```bash
